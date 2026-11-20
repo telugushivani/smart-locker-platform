@@ -1,4 +1,4 @@
-
+import API_BASE_URL from './api'
 import { useEffect, useState } from 'react'
 
 function LockerStations({ token }) {
@@ -17,7 +17,7 @@ function LockerStations({ token }) {
   const loadStations = async () => {
     try {
       const response = await fetch(
-        'http://127.0.0.1:8000/locker-stations/',
+        `${API_BASE_URL}/locker-stations/`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -49,7 +49,7 @@ function LockerStations({ token }) {
 
     try {
       const response = await fetch(
-        'http://127.0.0.1:8000/locker-stations/',
+        `${API_BASE_URL}/locker-stations/`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

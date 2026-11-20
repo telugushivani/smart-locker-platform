@@ -1,4 +1,4 @@
-
+import API_BASE_URL from './api'
 import { useState } from 'react'
 
 function AdminLogin({ onLoginSuccess }) {
@@ -16,9 +16,8 @@ function AdminLogin({ onLoginSuccess }) {
 
     try {
       const endpoint = isSignup
-        ? 'http://127.0.0.1:8000/admin/register'
-        : 'http://127.0.0.1:8000/admin/login'
-
+  ? `${API_BASE_URL}/admin/register`
+  : `${API_BASE_URL}/admin/login`
       const body = isSignup
         ? { username, email, password }
         : { email, password }

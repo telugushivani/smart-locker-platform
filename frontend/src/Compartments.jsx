@@ -1,4 +1,5 @@
 
+import API_BASE_URL from './api'
 import { useEffect, useState } from 'react'
 
 function Compartments({ token }) {
@@ -17,7 +18,7 @@ function Compartments({ token }) {
   const loadCompartments = async () => {
     try {
       const response = await fetch(
-        'http://127.0.0.1:8000/compartments/',
+        `${API_BASE_URL}/compartments/`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -49,7 +50,7 @@ function Compartments({ token }) {
 
     try {
       const response = await fetch(
-        'http://127.0.0.1:8000/compartments/',
+        `${API_BASE_URL}/compartments/`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

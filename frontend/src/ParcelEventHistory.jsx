@@ -1,4 +1,5 @@
 
+import API_BASE_URL from './api'
 import { useState } from 'react'
 
 function ParcelEventHistory({ adminToken }) {
@@ -24,7 +25,7 @@ function ParcelEventHistory({ adminToken }) {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/parcel-events/${parcelId}`,
+        `${API_BASE_URL}/parcel-events/${parcelId}`,
         {
           headers: {
             Authorization: `Bearer ${adminToken}`

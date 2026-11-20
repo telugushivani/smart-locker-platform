@@ -1,4 +1,4 @@
-
+import API_BASE_URL from './api'
 import { useEffect, useState } from 'react'
 
 function Customers({ token }) {
@@ -14,13 +14,13 @@ function Customers({ token }) {
   const loadCustomers = async () => {
     try {
       const response = await fetch(
-        'http://127.0.0.1:8000/customers/',
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        }
-      )
+  `${API_BASE_URL}/customers/`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+)
 
       if (!response.ok) {
         throw new Error('Failed to load customers')
@@ -49,19 +49,18 @@ function Customers({ token }) {
 
     try {
       const response = await fetch(
-        'http://127.0.0.1:8000/customers/',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            ...form,
-            customer_id: Number(form.customer_id)
-          })
-        }
-      )
-
+  `${API_BASE_URL}/customers/`,
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      ...form,
+      customer_id: Number(form.customer_id)
+    })
+  }
+)
       const data = await response.json()
 
       if (!response.ok) {

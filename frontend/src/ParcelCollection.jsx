@@ -1,4 +1,5 @@
 
+import API_BASE_URL from './api'
 import { useState } from 'react'
 
 function ParcelCollection() {
@@ -14,7 +15,7 @@ function ParcelCollection() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/customers/parcels/${parcelId}/collect`,
+        `${API_BASE_URL}/customers/parcels/${parcelId}/collect`,
         {
           method: 'POST',
           headers: {

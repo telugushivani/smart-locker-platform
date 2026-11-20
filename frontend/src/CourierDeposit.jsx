@@ -1,4 +1,4 @@
-
+import API_BASE_URL from './api'
 import { useState } from 'react'
 
 function CourierDeposit({ token }) {
@@ -18,7 +18,7 @@ function CourierDeposit({ token }) {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/courier/parcels/${parcelId}/deposit`,
+        `${API_BASE_URL}/courier/parcels/${parcelId}/deposit`,
         {
           method: 'POST',
           headers: {

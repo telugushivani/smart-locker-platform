@@ -1,4 +1,4 @@
-
+import API_BASE_URL from './api'
 import ParcelEventHistory from './ParcelEventHistory'
 import AdminLogin from './AdminLogin'
 import AdminDashboard from './AdminDashboard'
@@ -40,11 +40,11 @@ function App() {
         }
 
         const responses = await Promise.all([
-          fetch('http://127.0.0.1:8000/customers/', { headers }),
-          fetch('http://127.0.0.1:8000/locker-stations/', { headers }),
-          fetch('http://127.0.0.1:8000/compartments/', { headers }),
-          fetch('http://127.0.0.1:8000/parcels/', { headers })
-        ])
+  fetch(`${API_BASE_URL}/customers/`, { headers }),
+  fetch(`${API_BASE_URL}/locker-stations/`, { headers }),
+  fetch(`${API_BASE_URL}/compartments/`, { headers }),
+  fetch(`${API_BASE_URL}/parcels/`, { headers })
+])
 
         if (responses.some(res => !res.ok)) {
           throw new Error('Failed to fetch dashboard data')

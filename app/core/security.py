@@ -9,7 +9,12 @@ from sqlalchemy.orm import Session
 from app.database.dependencies import get_db
 from app.models.admin import Admin
 
-SECRET_KEY = "change-this-to-a-long-random-secret-before-deployment"
+import os
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+
+if not SECRET_KEY:
+    raise RuntimeError("SECRET_KEY environment variable is missing")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

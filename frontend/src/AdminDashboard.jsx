@@ -1,5 +1,7 @@
 
+import API_BASE_URL from './api'
 import { useEffect, useState } from 'react'
+
 
 function AdminDashboard({ token }) {
   const [stats, setStats] = useState({
@@ -26,10 +28,10 @@ function AdminDashboard({ token }) {
 
 const [customersResponse, stationsResponse, compartmentsResponse, parcelsResponse] =
   await Promise.all([
-    fetch('http://127.0.0.1:8000/customers/', { headers }),
-    fetch('http://127.0.0.1:8000/locker-stations/', { headers }),
-    fetch('http://127.0.0.1:8000/compartments/', { headers }),
-    fetch('http://127.0.0.1:8000/parcels/', { headers })
+    fetch(`${API_BASE_URL}/customers/`, { headers }),
+    fetch(`${API_BASE_URL}/locker-stations/`, { headers }),
+    fetch(`${API_BASE_URL}/compartments/`, { headers }),
+    fetch(`${API_BASE_URL}/parcels/`, { headers })
   ])
 
 if (
@@ -65,7 +67,7 @@ const [customers, stations, compartments, parcelData] =
     }
 
     loadAdminData()
-  }, [])
+  }, [token])
 
   // Dashboard cards
   const cards = [

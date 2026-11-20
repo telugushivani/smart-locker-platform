@@ -1,4 +1,5 @@
 
+import API_BASE_URL from './api'
 import { useState } from 'react'
 
 function ParcelTracking() {
@@ -13,7 +14,7 @@ function ParcelTracking() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/parcels/track/${encodeURIComponent(trackingNumber)}`
+        `${API_BASE_URL}/parcels/track/${encodeURIComponent(trackingNumber)}`,
       )
 
       const data = await response.json()
